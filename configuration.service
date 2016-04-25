@@ -1,0 +1,16 @@
+[Unit]
+Description=Configuration is a micro service for storing and retrieving configuration
+Documentation=http://github.com/russellchadwick/configurationservice
+After=network.target
+
+[Service]
+User=pi
+Group=pi
+LimitNOFILE=65536
+ExecStart=/home/pi/go/bin/configurationserver
+KillMode=control-group
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
+Alias=configuration.service
